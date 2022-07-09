@@ -15,16 +15,17 @@ function App() {
    }
 
   }, []);
-  const logoutHandler = () => {
-    setIsLoggedIn(false);
-  };
-
+  
   const loginHandler = (email, password) => {
     //storing in local storage
 
     localStorage.setItem('isLoggedIn', 'loggedIn');
    isLoggedIn(true);
   };
+  const logoutHandler = () => {
+    setIsLoggedIn(false);
+  };
+
    
    }
   
@@ -37,6 +38,6 @@ function App() {
       </main>
     </React.Fragment>
   );
-}
+
 
 export default App;
