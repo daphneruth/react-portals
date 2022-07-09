@@ -13,6 +13,11 @@ function App() {
     localStorage.setItem('isLoggedIn', 'loggedIn');
    isLoggedIn(true);
   };
+   const userInputInfo = localStorage.getItem('isLoggedIn');
+
+   if (userInputInfo === isLoggedIn){
+    setIsLoggedIn(true)
+   }
 
   const logoutHandler = () => {
     setIsLoggedIn(false);
