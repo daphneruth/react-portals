@@ -19,13 +19,13 @@ const Login = (props) => {
         enteredEmail.includes('@') && enteredPassword.trim().length > 6);
     },[enteredEmail, enteredPassword])
 
-  const passwordChangeHandler = (event) => {
-    setEnteredPassword(event.target.value);
+  c//onst passwordChangeHandler = (event) => {
+    //setEnteredPassword(event.target.value);
 
-    setFormIsValid(
-      event.target.value.trim().length > 6 && enteredEmail.includes('@')
-    );
-  };
+    //setFormIsValid(
+      //event.target.value.trim().length > 6 && enteredEmail.includes('@')
+    //);
+  //};
 
   const validateEmailHandler = () => {
     setEmailIsValid(enteredEmail.includes('@'));
