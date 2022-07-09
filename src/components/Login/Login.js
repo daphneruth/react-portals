@@ -16,7 +16,7 @@ const Login = (props) => {
 
     useEffect(()=>{
       setFormIsValid(
-        enteredEmail.includes('@') && enteredPassword.trim().length > 6
+        enteredEmail.includes('@') && enteredPassword.trim().length > 6);
     },[])
 
   const passwordChangeHandler = (event) => {
@@ -30,7 +30,7 @@ const Login = (props) => {
   const validateEmailHandler = () => {
     setEmailIsValid(enteredEmail.includes('@'));
   };
-
+ 
   const validatePasswordHandler = () => {
     setPasswordIsValid(enteredPassword.trim().length > 6);
   };
