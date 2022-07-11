@@ -11,21 +11,28 @@ const Login = (props) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const emailChangeHandler = (event) => {
-    setEnteredEmail(event.target.value);
+ 
 
     useEffect(()=>{
-      setFormIsValid(
-        enteredEmail.includes('@') && enteredPassword.trim().length > 6);
-    },[enteredEmail, enteredPassword])
-
-  c//onst passwordChangeHandler = (event) => {
+      setTimeout(()=>{
+        setFormIsValid(
+          enteredEmail.includes('@') && enteredPassword.trim().length > 6);
+        },500);
+        //ceanup function
+    return ()=>{}
+      },[enteredEmail, enteredPassword])
+  
+    
+    
+      //const passwordChangeHandler = (event) => {
     //setEnteredPassword(event.target.value);
 
     //setFormIsValid(
       //event.target.value.trim().length > 6 && enteredEmail.includes('@')
     //);
   //};
+  const emailChangeHandler = (event) => {
+    setEnteredEmail(event.target.value);
 
   const validateEmailHandler = () => {
     setEmailIsValid(enteredEmail.includes('@'));
@@ -81,5 +88,6 @@ const Login = (props) => {
   );
 };
 }
+
 
 export default Login;
