@@ -21,17 +21,20 @@ const Login = (props) => {
         },500);
         //cleanup function
     return ()=>{
-      console.log(CleanUp);
+      console.log("CleanUp");
       clearTimeout(identifier);
     }
-      },[enteredEmail, enteredPassword])
+      },[enteredEmail, enteredPassword]);
   
     
     
       
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
-
+  }
+    const passwordChangeHandler = (event) => {
+      setEnteredPassword(event.target.value);
+    }
   const validateEmailHandler = () => {
     setEmailIsValid(enteredEmail.includes('@'));
   };
@@ -85,7 +88,7 @@ const Login = (props) => {
     </Card>
   );
 };
-}
+
 
 
 export default Login;

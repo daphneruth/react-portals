@@ -14,7 +14,7 @@ function App() {
     setIsLoggedIn(true);
    }
 
-  }, []);
+  }, [isLoggedIn]);
   
   const loginHandler = (email, password) => {
     //storing in local storage
