@@ -14,23 +14,21 @@ const Login = (props) => {
  
 
     useEffect(()=>{
-      setTimeout(()=>{
+      const identifier =setTimeout(()=>{
+        console.log("Checking for validity")
         setFormIsValid(
           enteredEmail.includes('@') && enteredPassword.trim().length > 6);
         },500);
-        //ceanup function
-    return ()=>{}
+        //cleanup function
+    return ()=>{
+      console.log(CleanUp);
+      clearTimeout(identifier);
+    }
       },[enteredEmail, enteredPassword])
   
     
     
-      //const passwordChangeHandler = (event) => {
-    //setEnteredPassword(event.target.value);
-
-    //setFormIsValid(
-      //event.target.value.trim().length > 6 && enteredEmail.includes('@')
-    //);
-  //};
+      
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
 

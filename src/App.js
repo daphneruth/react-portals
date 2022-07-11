@@ -27,7 +27,7 @@ function App() {
   };
 
    
-   }
+   
   
   return (
     <React.Fragment>
@@ -38,6 +38,7 @@ function App() {
       </main>
     </React.Fragment>
   );
+}
 
 
 export default App;
