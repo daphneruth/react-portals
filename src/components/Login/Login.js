@@ -60,6 +60,9 @@ const[passwordState, dispatchPassword] =useReducer(passwordReducer, {value:'', i
    // setEnteredEmail(event.target.value);
    dispatchEmail({type: 'User_Input', val:event.target.value});
   }
+  setFormIsValid(
+  emailState.isValid && event.target.value.trim().length > 6
+  );
     const passwordChangeHandler = (event) => {
       setEnteredPassword(event.target.value);
     }
