@@ -4,6 +4,9 @@ import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
 
+const emailReducer = () => {};
+
+
 const Login = (props) => {
   const [enteredEmail, setEnteredEmail] = useState('');
   const [emailIsValid, setEmailIsValid] = useState();
@@ -11,8 +14,9 @@ const Login = (props) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const emailReducer = () => {};
+  const [emailState, dispatchEmail] =useReducer(emailReducer);
 
+  
  useEffect(()=>{
   console.log("Effect running");
   return () =>{
