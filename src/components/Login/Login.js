@@ -5,6 +5,9 @@ import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
 
 const emailReducer = (state, action) => {
+  if(action.type === 'User_Input'){
+    return {value: action.val,isValid:action.val.includes('@')};
+  }
   return {value: '',isValid:false}
 };
 
@@ -43,13 +46,15 @@ const Login = (props) => {
     
       
   const emailChangeHandler = (event) => {
-    setEnteredEmail(event.target.value);
+   // setEnteredEmail(event.target.value);
+   dispatchEmail({type: 'User_Input', val:event.target.value});
   }
     const passwordChangeHandler = (event) => {
       setEnteredPassword(event.target.value);
     }
   const validateEmailHandler = () => {
-    setEmailIsValid(enteredEmail.isValid);
+   setEmailIsValid(emailState.isValid);
+   
   };
  
   const validatePasswordHandler = () => {
