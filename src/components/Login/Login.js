@@ -58,17 +58,23 @@ const[passwordState, dispatchPassword] =useReducer(passwordReducer, {value:'', i
       
   const emailChangeHandler = (event) => {
    // setEnteredEmail(event.target.value);
-   dispatchEmail({type: 'User_Input', val:event.target.value});
-  }
+   dispatchEmail({type:'User_Input', val:event.target.vaue});
   setFormIsValid(
-  emailState.isValid && event.target.value.trim().length > 6
+    event.target.value.includes('@') && passwordState.isValid
   );
+
+  }
+  
     const passwordChangeHandler = (event) => {
       setEnteredPassword(event.target.value);
     }
   const validateEmailHandler = () => {
    //setEmailIsValid(emailState.isValid);
    dispatchEmail({type:'Input_Blur'});
+
+   setFormIsValid(
+    emailState.isValid && event.target.value.trim().length > 6
+    );
    
   };
  
