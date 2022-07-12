@@ -31,7 +31,7 @@ const Login = (props) => {
   const [formIsValid, setFormIsValid] = useState(false);
 
   const [emailState, dispatchEmail] =useReducer(emailReducer, {value:'', isValid:false,});
-
+const[passwordState, dispatchPassword] =useReducer(passwordReducer, {value:'', isValid:false,});
    
  useEffect(()=>{
   console.log("Effect running");
@@ -44,7 +44,7 @@ const Login = (props) => {
       const identifier =setTimeout(()=>{
         console.log("Checking for validity")
         setFormIsValid(
-          emailState.value.includes('@') && passwordState.isValid);
+          emailState.value.includes('@') && enteredPassword.isValid);
         },500);
         //cleanup function
     return ()=>{
