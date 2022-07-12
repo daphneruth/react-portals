@@ -66,7 +66,8 @@ const[passwordState, dispatchPassword] =useReducer(passwordReducer, {value:'', i
   }
   
     const passwordChangeHandler = (event) => {
-      setEnteredPassword(event.target.value);
+     // setEnteredPassword(event.target.value);
+     dispatchEmail({type:'User_Input', val:event.target.vaue});
     }
   const validateEmailHandler = () => {
    //setEmailIsValid(emailState.isValid);
@@ -79,12 +80,14 @@ const[passwordState, dispatchPassword] =useReducer(passwordReducer, {value:'', i
   };
  
   const validatePasswordHandler = () => {
-    setPasswordIsValid(enteredPassword.trim().length > 6);
+   // setPasswordIsValid(enteredPassword.trim().length > 6);
+   dispatchEmail({type:'Input_Blur'});
+
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onLogin(emailState.value, enteredPassword);
+    props.onLogin(emailState.value, passwordState.value);
   };
 
   return (
