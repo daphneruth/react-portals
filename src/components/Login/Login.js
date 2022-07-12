@@ -13,6 +13,14 @@ const emailReducer = (state, action) => {
   }
   return {value: '',isValid:false}
 };
+ const passwordReducer =(state, action) => {if(action.type === 'User_Input'){
+  return {value: action.val,isValid:action.val.trim().length > 6};
+}
+if(action.type === 'Input_Blur'){
+  return {value: state.value, isValid:action.val.trim().length > 6};
+}
+return {value: '',isValid:false}
+};
 
 
 const Login = (props) => {
@@ -36,7 +44,7 @@ const Login = (props) => {
       const identifier =setTimeout(()=>{
         console.log("Checking for validity")
         setFormIsValid(
-          emailState.value.includes('@') && enteredPassword.trim().length > 6);
+          emailState.value.includes('@') && passwordState.isValid);
         },500);
         //cleanup function
     return ()=>{
