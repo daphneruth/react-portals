@@ -26,8 +26,8 @@ return {value: '',isValid:false}
 const Login = (props) => {
   //const [enteredEmail, setEnteredEmail] = useState('');
   //const [emailIsValid, setEmailIsValid] = useState();
-  const [enteredPassword, setEnteredPassword] = useState('');
-  const [passwordIsValid, setPasswordIsValid] = useState();
+  //const [enteredPassword, setEnteredPassword] = useState('');
+  //const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
   const [emailState, dispatchEmail] =useReducer(emailReducer, {value:'', isValid:false,});
@@ -44,7 +44,7 @@ const[passwordState, dispatchPassword] =useReducer(passwordReducer, {value:'', i
       const identifier =setTimeout(()=>{
         console.log("Checking for validity")
         setFormIsValid(
-          emailState.value.includes('@') && enteredPassword.isValid);
+          emailState.value.includes('@') && passwordState.isValid);
         },500);
         //cleanup function
     return ()=>{
@@ -58,7 +58,7 @@ const[passwordState, dispatchPassword] =useReducer(passwordReducer, {value:'', i
       
   const emailChangeHandler = (event) => {
    // setEnteredEmail(event.target.value);
-   dispatchEmail({type:'User_Input', val:event.target.vaue});
+   dispatchEmail({type:'User_Input', val:event.target.value});
   setFormIsValid(
     event.target.value.includes('@') && passwordState.isValid
   );
@@ -67,7 +67,7 @@ const[passwordState, dispatchPassword] =useReducer(passwordReducer, {value:'', i
   
     const passwordChangeHandler = (event) => {
      // setEnteredPassword(event.target.value);
-     dispatchEmail({type:'User_Input', val:event.target.vaue});
+     dispatchPassword({type:'User_Input', val:event.target.vaue});
     }
   const validateEmailHandler = () => {
    //setEmailIsValid(emailState.isValid);
@@ -109,14 +109,14 @@ const[passwordState, dispatchPassword] =useReducer(passwordReducer, {value:'', i
         </div>
         <div
           className={`${classes.control} ${
-            passwordIsValid === false ? classes.invalid : ''
+            passwordState.isValid === false ? classes.invalid : ''
           }`}
         >
           <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
-            value={enteredPassword}
+            value={passwordState.value}
             onChange={passwordChangeHandler}
             onBlur={validatePasswordHandler}
           />
