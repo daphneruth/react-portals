@@ -8,6 +8,9 @@ const emailReducer = (state, action) => {
   if(action.type === 'User_Input'){
     return {value: action.val,isValid:action.val.includes('@')};
   }
+  if(action.type === 'Input_Blur'){
+    return {value: state.value, isValid:action.val.includes('@')};
+  }
   return {value: '',isValid:false}
 };
 
@@ -53,7 +56,8 @@ const Login = (props) => {
       setEnteredPassword(event.target.value);
     }
   const validateEmailHandler = () => {
-   setEmailIsValid(emailState.isValid);
+   //setEmailIsValid(emailState.isValid);
+   dispatchEmail({type:'Input_Blur'});
    
   };
  
